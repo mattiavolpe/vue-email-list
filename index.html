@@ -22,12 +22,16 @@
       <h1>RANDOM E-MAILS GENERATOR</h1>
       <h3>E-mails to generate: {{emailsToGenerate}}</h3>
 
-      <div v-if="!generationComplete">
+      <div v-if="errorPresent">
+        <h2 class="error">Something went wrong</h2>
+      </div>
+
+      <div v-else-if="!generationComplete">
         <h2>GENERATING {{emailsToGenerate}} E-MAILS</h2>
         <h2><i class="fa-solid fa-spinner fa-spin"></i></h2>
       </div>
       
-      <ul v-else="generationComplete">
+      <ul v-else>
         <li v-for="mail in generatedEmails">
           <h2>{{mail}}</h2>
         </li>

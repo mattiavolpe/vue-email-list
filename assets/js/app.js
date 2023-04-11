@@ -14,6 +14,7 @@ createApp({
       generationComplete: false,
       apiURL: 'https://flynn.boolean.careers/exercises/api/random/mail',
       generatedEmails: [],
+      errorPresent: false,
     }
   },
   mounted() {
@@ -23,6 +24,10 @@ createApp({
       .then(response => {
         this.generatedEmails.push(response.data.response);
         i === this.emailsToGenerate - 1 ? this.generationComplete = true : '';
+      })
+      .catch(error => {
+        console.error(`You have an error: ${error.message}`);
+        this.errorPresent = true;
       })
     }
   }

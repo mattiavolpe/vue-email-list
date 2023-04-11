@@ -12,6 +12,10 @@ div {
   margin: 2rem 0.5rem;
 }
 
+.error {
+  color: #ff0000;
+}
+
 ul {
   margin-top: 2rem;
 }
