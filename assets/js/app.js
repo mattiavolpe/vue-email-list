@@ -23,7 +23,6 @@ createApp({
       axios
       .get(this.apiURL)
       .then(response => {
-        console.log(response);
         this.generatedEmails.push(response.data.response);
         if(i === this.emailsToGenerate - 1) {
           this.generationComplete = true;
