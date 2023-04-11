@@ -20,21 +20,21 @@ createApp({
   methods: {
     generateEmails() {
       let start = performance.now();
-    for (let i = 0; i < this.emailsToGenerate; i++) {
-      axios
-      .get(this.apiURL)
-      .then(response => {
-        this.generatedEmails.push(response.data.response);
-        if(i === this.emailsToGenerate - 1) {
-          this.generationComplete = true;
-          this.elapsedTime = performance.now() - start;
-        }
-      })
-      .catch(error => {
-        console.error(`You have an error: ${error.message}`);
-        this.errorPresent = true;
-      })
-    }
+      for (let i = 0; i < this.emailsToGenerate; i++) {
+        axios
+        .get(this.apiURL)
+        .then(response => {
+          this.generatedEmails.push(response.data.response);
+          if(i === this.emailsToGenerate - 1) {
+            this.generationComplete = true;
+            this.elapsedTime = performance.now() - start;
+          }
+        })
+        .catch(error => {
+          console.error(`You have an error: ${error.message}`);
+          this.errorPresent = true;
+        })
+      }
     }
   },
   mounted() {
