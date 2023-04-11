@@ -17,8 +17,9 @@ createApp({
       elapsedTime: null,
     }
   },
-  mounted() {
-    let start = performance.now();
+  methods: {
+    generateEmails() {
+      let start = performance.now();
     for (let i = 0; i < this.emailsToGenerate; i++) {
       axios
       .get(this.apiURL)
@@ -34,5 +35,9 @@ createApp({
         this.errorPresent = true;
       })
     }
+    }
+  },
+  mounted() {
+    this.generateEmails();
   }
 }).mount('#app')
