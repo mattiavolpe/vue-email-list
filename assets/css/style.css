@@ -4,12 +4,9 @@
   padding: 0;
 }
 
-#app {
-  text-align: center;
-}
-
 div {
   margin: 2rem 0.5rem;
+  text-align: center;
 }
 
 .error {

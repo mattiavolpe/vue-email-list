@@ -9,7 +9,6 @@ const { createApp } = Vue
 createApp({
   data() {
     return {
-      message: 'Hello Vue!',
       emailsToGenerate: 10,
       generationComplete: false,
       apiURL: 'https://flynn.boolean.careers/exercises/api/random/mail',
