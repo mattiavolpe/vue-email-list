@@ -14,15 +14,21 @@ createApp({
       apiURL: 'https://flynn.boolean.careers/exercises/api/random/mail',
       generatedEmails: [],
       errorPresent: false,
+      elapsedTime: null,
     }
   },
   mounted() {
+    let start = performance.now();
     for (let i = 0; i < this.emailsToGenerate; i++) {
       axios
       .get(this.apiURL)
       .then(response => {
+        console.log(response);
         this.generatedEmails.push(response.data.response);
-        i === this.emailsToGenerate - 1 ? this.generationComplete = true : '';
+        if(i === this.emailsToGenerate - 1) {
+          this.generationComplete = true;
+          this.elapsedTime = performance.now() - start;
+        }
       })
       .catch(error => {
         console.error(`You have an error: ${error.message}`);

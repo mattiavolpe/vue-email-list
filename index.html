@@ -31,11 +31,14 @@
         <h2><i class="fa-solid fa-spinner fa-spin"></i></h2>
       </div>
       
-      <ul v-else>
-        <li v-for="mail in generatedEmails">
-          <h2>{{mail}}</h2>
-        </li>
-      </ul>
+      <div v-else>
+        <h2>{{emailsToGenerate}} E-MAILS GENERATED IN {{elapsedTime.toFixed(2)}}ms</h2>
+        <ul>
+          <li v-for="mail in generatedEmails">
+            <h2>{{mail}}</h2>
+          </li>
+        </ul>
+      </div>
       
     </div>
     <!-- /#app -->
