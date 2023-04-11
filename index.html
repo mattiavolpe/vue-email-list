@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- EXTERNAL FONTAWESOME CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     
     <!-- EXTERNAL PERSONAL CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
@@ -15,11 +18,26 @@
   <body>
     
     <div id="app">
+
+      <h1>RANDOM E-MAILS GENERATOR</h1>
+      <h3>E-mails to generate: {{emailsToGenerate}}</h3>
+
+      <div v-if="!generationComplete">
+        <h2>GENERATING {{emailsToGenerate}} E-MAILS</h2>
+        <h2><i class="fa-solid fa-spinner fa-spin"></i></h2>
+      </div>
       
-      {{message}}
+      <ul v-else="generationComplete">
+        <li v-for="mail in generatedEmails">
+          <h2>{{mail}}</h2>
+        </li>
+      </ul>
       
     </div>
     <!-- /#app -->
+
+    <!-- EXTERNAL AXIOS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     
     <!-- EXTERNAL VUE JS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.global.min.js"></script>
